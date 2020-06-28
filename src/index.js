@@ -1,14 +1,14 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import './styles/index.css';
-import App from './components/App';
+import Drums from './components/Drums';
 import * as serviceWorker from './serviceWorker';
-import { MidiProvider } from './context/MidiProvider';
+import { MidiProvider } from 'web-midi-hooks';
 
 ReactDOM.render(
   <React.StrictMode>
     <MidiProvider>
-      <App />
+      <Drums />
     </MidiProvider>
   </React.StrictMode>,
   document.getElementById('root')
