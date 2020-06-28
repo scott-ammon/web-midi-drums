@@ -17,3 +17,5 @@ export const CRASH_RIGHT_EDGE = 52;
 export const RIDE_EDGE = 59;
 export const RIDE = 51;
 export const RIDE_BELL = 53;
+
+export const MAX_ARRAY_LENGTH = 25;
