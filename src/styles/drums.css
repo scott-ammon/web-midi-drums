@@ -1,0 +1,74 @@
+.visualizer {
+  width: 100vw;
+  height: 100vh;
+  background-color: black;
+  position: relative;
+}
+
+@keyframes fade {
+  0% { opacity:1; }
+  100% { opacity:0; }
+}
+
+@keyframes kickScale1 {
+  0% { 
+    transform: scale(0); 
+    opacity: 1;
+  }
+  10% { transform: scale(1); }
+  100% { 
+    transform: scale(0); 
+    opacity: 0;
+  }
+}
+
+@keyframes kickScale2 {
+  0% { 
+    transform: scale(0); 
+    opacity: 1;
+  }
+  20% { transform: scale(1); }
+  100% { 
+    transform: scale(0); 
+    opacity: 0;
+  }
+}
+
+@keyframes kickScale3 {
+  0% { 
+    transform: scale(0); 
+    opacity: 1;
+  }
+  30% { transform: scale(1); }
+  100% { 
+    transform: scale(0); 
+    opacity: 0;
+  }
+}
+
+.star-shape {
+  position: absolute;
+  left: 0;
+  top: 0;
+  opacity: 0;
+  animation: scale .4s linear;
+}
+
+.kick {
+  position: absolute;
+  left: 0;
+  top: 0;
+  opacity: 0;
+}
+
+.inner {
+  animation: kickScale1 2s linear;
+}
+
+.mid {
+  animation: kickScale2 2s linear;
+}
+
+.outer {
+  animation: kickScale3 2s linear;
+}
