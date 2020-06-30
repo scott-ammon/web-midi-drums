@@ -66,7 +66,7 @@ export class Snare extends Instrument {
     return (
       <div key={Math.random()}>
         <svg className="fixed" height="100%" width="100%">
-          <circle r="50" cx={Math.floor(Math.random() * Math.floor(200))} cy={Math.floor(Math.random() * Math.floor(200))} fill="orange"/>
+          <circle r="50" cx={Math.floor(Math.random() * Math.floor(1000)) + 200} cy={Math.floor(Math.random() * Math.floor(600)) + 200} fill="orange"/>
         </svg>
       </div>
     );
@@ -78,7 +78,7 @@ export class Tom1 extends Instrument {
     return (
       <div key={Math.random()}>
         <svg className="fixed" height="100%" width="100%">
-          <circle r="50" cx={Math.floor(Math.random() * Math.floor(200))} cy={Math.floor(Math.random() * Math.floor(200))} fill="blue"/>
+          <circle r="50" cx={Math.floor(Math.random() * Math.floor(1000)) + 200} cy={Math.floor(Math.random() * Math.floor(600)) + 200} fill="blue"/>
         </svg>
       </div>
     );
@@ -90,7 +90,7 @@ export class Tom2 extends Instrument {
     return (
       <div key={Math.random()}>
         <svg className="fixed" height="100%" width="100%">
-          <circle r="50" cx={Math.floor(Math.random() * Math.floor(200))} cy={Math.floor(Math.random() * Math.floor(200))} fill="green"/>
+          <circle r="50" cx={Math.floor(Math.random() * Math.floor(1000)) + 200} cy={Math.floor(Math.random() * Math.floor(600)) + 200} fill="green"/>
         </svg>
       </div>
     );
@@ -102,14 +102,14 @@ export class Tom3 extends Instrument {
     return (
       <div key={Math.random()}>
         <svg className="fixed" height="100%" width="100%">
-          <circle r="50" cx={Math.floor(Math.random() * Math.floor(200))} cy={Math.floor(Math.random() * Math.floor(200))} fill="yellow"/>
+          <circle r="50" cx={Math.floor(Math.random() * Math.floor(1000)) + 200} cy={Math.floor(Math.random() * Math.floor(600)) + 200} fill="yellow"/>
         </svg>
       </div>
     );
   }
 }
 
-export class Crash1 extends Instrument {
+export class CrashLeft extends Instrument {
   makeShape = () => {
     return (
       <div key={Math.random()}>
@@ -121,7 +121,7 @@ export class Crash1 extends Instrument {
   }
 }
 
-export class Crash2 extends Instrument {
+export class CrashRight extends Instrument {
   makeShape = () => {
     return (
       <div key={Math.random()}>
@@ -138,7 +138,7 @@ export class Ride extends Instrument {
     return (
       <div key={Math.random()}>
         <svg className="fixed" height="100%" width="100%">
-          <circle r="50" cx={Math.floor(Math.random() * Math.floor(200))} cy={Math.floor(Math.random() * Math.floor(200))} fill="white"/>
+          <circle r="50" cx="50%" cy="50%" fill="white"/>
         </svg>
       </div>
     );

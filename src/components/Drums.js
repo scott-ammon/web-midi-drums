@@ -7,7 +7,10 @@ import {
   HiHatOpen,
   Tom1,
   Tom2,
-  Tom3
+  Tom3,
+  CrashLeft,
+  CrashRight,
+  Ride
  } from "./drumClasses";
 import * as Constants from '../constants';
 import "../styles/drums.css";
@@ -19,6 +22,9 @@ const hiHatOpen = new HiHatOpen();
 const tom1 = new Tom1();
 const tom2 = new Tom2();
 const tom3 = new Tom3();
+const crashLeft = new CrashLeft();
+const crashRight = new CrashRight();
+const ride = new Ride();
 
 const handleHit = hit => {
   switch(hit.note) {
@@ -43,6 +49,15 @@ const handleHit = hit => {
     case Constants.HI_HAT_OPEN:
       hiHatOpen.handleHit();
       break;
+    case Constants.CRASH_LEFT:
+      crashLeft.handleHit();
+      break;
+    case Constants.CRASH_RIGHT:
+      crashRight.handleHit();
+      break;
+    case Constants.RIDE:
+      ride.handleHit();
+      break;
     default:
       break;
   }
@@ -51,9 +66,9 @@ const handleHit = hit => {
 const Drums = () => {
   const { keyData } = useContext(MidiDataContext);
 
-  keyData.forEach(hit => {
-    handleHit(hit);
-  });
+  if(keyData.length > 0) {
+    handleHit(keyData[0])
+  }
 
   return (
     <div className="visualizer">
