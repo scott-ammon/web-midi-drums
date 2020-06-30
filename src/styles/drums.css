@@ -61,6 +61,14 @@
   opacity: 0;
 }
 
+.fixed {
+  position: absolute;
+  left: 0;
+  top: 0;
+  opacity: 0;
+  animation: fade .3s linear;
+}
+
 .inner {
   animation: kickScale1 2s linear;
 }

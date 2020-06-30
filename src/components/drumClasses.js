@@ -4,12 +4,12 @@ import * as Constants from "../constants";
 class Instrument {
   constructor() {
     this.hitArray = [];
-    this.shape = null;
+    this.makeShape = () => null;
   }
 
   handleHit() {
     this.handleHitArrayLength();
-    this.hitArray.push(this.shape);
+    this.hitArray.push(this.makeShape());
   }
 
   handleHitArrayLength() {
@@ -20,10 +20,9 @@ class Instrument {
 }
 
 export class Kick extends Instrument {
-  constructor() {
-    super();
-    this.shape = (
-      <div>
+  makeShape = () => {
+    return (
+      <div key={Math.random()}>
         <svg className="kick outer" height="100%" width="100%">
           <circle r="150" cx="50%" cy="50%" fill="orange"/>
         </svg>
@@ -35,25 +34,115 @@ export class Kick extends Instrument {
         </svg>
       </div>
     );
-  };
+  }
 }
 
-export class HiHat extends Instrument {
-  constructor() {
-    super();
-    this.shape = (
-      <svg height="400" width="800" key={Math.random()}>
-        <circle 
-          cx={Math.floor(Math.random() * Math.floor(700))} 
-          cy={Math.floor(Math.random() * Math.floor(300))} 
-          r="5"
-          stroke="yellow" 
-          strokeWidth="2" 
-          fill="none" 
-        />
-      </svg>
+export class HiHatClosed extends Instrument {
+  makeShape = () => {
+    return (
+      <div key={Math.random()}>
+        <svg className="fixed" height="100%" width="100%">
+          <circle r="50" cx="50%" cy="50%" fill="gray"/>
+        </svg>
+      </div>
     );
-  };
+  }
+}
+
+export class HiHatOpen extends Instrument {
+  makeShape = () => {
+    return (
+      <div key={Math.random()}>
+        <svg className="fixed" height="100%" width="100%">
+          <circle r="50" cx="50%" cy="50%" fill="brown"/>
+        </svg>
+      </div>
+    );
+  }
+}
+
+export class Snare extends Instrument {
+  makeShape = () => {
+    return (
+      <div key={Math.random()}>
+        <svg className="fixed" height="100%" width="100%">
+          <circle r="50" cx={Math.floor(Math.random() * Math.floor(200))} cy={Math.floor(Math.random() * Math.floor(200))} fill="orange"/>
+        </svg>
+      </div>
+    );
+  }
+}
+
+export class Tom1 extends Instrument {
+  makeShape = () => {
+    return (
+      <div key={Math.random()}>
+        <svg className="fixed" height="100%" width="100%">
+          <circle r="50" cx={Math.floor(Math.random() * Math.floor(200))} cy={Math.floor(Math.random() * Math.floor(200))} fill="blue"/>
+        </svg>
+      </div>
+    );
+  }
+}
+
+export class Tom2 extends Instrument {
+  makeShape = () => {
+    return (
+      <div key={Math.random()}>
+        <svg className="fixed" height="100%" width="100%">
+          <circle r="50" cx={Math.floor(Math.random() * Math.floor(200))} cy={Math.floor(Math.random() * Math.floor(200))} fill="green"/>
+        </svg>
+      </div>
+    );
+  }
+}
+
+export class Tom3 extends Instrument {
+  makeShape = () => {
+    return (
+      <div key={Math.random()}>
+        <svg className="fixed" height="100%" width="100%">
+          <circle r="50" cx={Math.floor(Math.random() * Math.floor(200))} cy={Math.floor(Math.random() * Math.floor(200))} fill="yellow"/>
+        </svg>
+      </div>
+    );
+  }
+}
+
+export class Crash1 extends Instrument {
+  makeShape = () => {
+    return (
+      <div key={Math.random()}>
+        <svg className="fixed" height="100%" width="100%">
+          <circle r="50" cx="50%" cy="50%" fill="red"/>
+        </svg>
+      </div>
+    );
+  }
+}
+
+export class Crash2 extends Instrument {
+  makeShape = () => {
+    return (
+      <div key={Math.random()}>
+        <svg className="fixed" height="100%" width="100%">
+          <circle r="50" cx="50%" cy="50%" fill="purple"/>
+        </svg>
+      </div>
+    );
+  }
+}
+
+export class Ride extends Instrument {
+  makeShape = () => {
+    return (
+      <div key={Math.random()}>
+        <svg className="fixed" height="100%" width="100%">
+          <circle r="50" cx={Math.floor(Math.random() * Math.floor(200))} cy={Math.floor(Math.random() * Math.floor(200))} fill="white"/>
+        </svg>
+      </div>
+    );
+  }
 }
 
 export class StarShape extends Instrument {
