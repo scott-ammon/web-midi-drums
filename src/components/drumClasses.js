@@ -1,5 +1,4 @@
 import React from 'react';
-import * as Constants from "../constants";
 
 class Instrument {
   constructor() {
@@ -8,16 +7,8 @@ class Instrument {
   }
 
   handleHit() {
-    // this.handleHitArrayLength();
-    // this.hitArray.push(this.makeShape());
     this.hitArray = [this.makeShape()];
   }
-
-  // handleHitArrayLength() {
-  //   if (this.hitArray.length >= Constants.MAX_ARRAY_LENGTH) {
-  //     this.hitArray.splice(-Constants.MAX_ARRAY_LENGTH);
-  //   }
-  // };
 }
 
 export class Kick extends Instrument {
