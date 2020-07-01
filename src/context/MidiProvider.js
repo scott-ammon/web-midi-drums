@@ -33,8 +33,8 @@ const MidiProvider = (props) => {
         setKeyData(newKeyData);
         break;
       // case Constants.NOTE_OFF_EVENT:
-      //   setKeyData([]);
-      //   break;
+        // setKeyData([]);
+        // break;
       case Constants.PITCH_BEND_EVENT:
         setPitch(newMSB);
         break;

@@ -1,4 +1,4 @@
-import React, { useContext, useEffect } from 'react';
+import React, { useContext, useMemo } from 'react';
 import MidiDataContext from '../context/MidiDataContext';
 import { 
   Kick,
@@ -66,9 +66,10 @@ const handleHit = hit => {
 const Drums = () => {
   const { keyData } = useContext(MidiDataContext);
 
-  useEffect(() => {
-    console.log(keyData);
-    handleHit(keyData);
+  useMemo(() => {
+    if(keyData !== []) {
+      handleHit(keyData);
+    }
   }, [keyData]);
 
 
