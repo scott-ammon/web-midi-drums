@@ -1,5 +1,5 @@
-import React, { useContext } from 'react';
-import { MidiDataContext } from 'web-midi-hooks';
+import React, { useContext, useMemo } from 'react';
+import MidiDataContext from '../context/MidiDataContext';
 import { 
   Kick,
   Snare,
@@ -66,9 +66,12 @@ const handleHit = hit => {
 const Drums = () => {
   const { keyData } = useContext(MidiDataContext);
 
-  if(keyData.length > 0) {
-    handleHit(keyData[0])
-  }
+  useMemo(() => {
+    if(keyData !== []) {
+      handleHit(keyData);
+    }
+  }, [keyData]);
+
 
   return (
     <div className="visualizer">

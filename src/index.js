@@ -3,7 +3,7 @@ import ReactDOM from 'react-dom';
 import './styles/index.css';
 import Drums from './components/Drums';
 import * as serviceWorker from './serviceWorker';
-import { MidiProvider } from 'web-midi-hooks';
+import MidiProvider from './context/MidiProvider';
 
 ReactDOM.render(
   <React.StrictMode>
