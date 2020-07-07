@@ -5,44 +5,33 @@
   position: relative;
 }
 
-@keyframes fade {
-  0% { opacity:1; }
-  100% { opacity:0; }
-}
-
-@keyframes kickScale1 {
+@keyframes kickAnimation {
   0% { 
-    transform: scale(0); 
+    transform: scale(1); 
     opacity: 1;
   }
   10% { transform: scale(1); }
   100% { 
-    transform: scale(0); 
-    opacity: 0;
+    transform: scale(.8); 
   }
 }
 
-@keyframes kickScale2 {
+@keyframes snareAnimation {
   0% { 
-    transform: scale(0); 
     opacity: 1;
   }
-  20% { transform: scale(1); }
   100% { 
-    transform: scale(0); 
-    opacity: 0;
+    transform: scale(.5) rotate(40deg); 
   }
 }
 
-@keyframes kickScale3 {
+@keyframes hiHatAnimation {
   0% { 
-    transform: scale(0); 
+    transform: scaleY(0);
     opacity: 1;
   }
-  30% { transform: scale(1); }
   100% { 
-    transform: scale(0); 
-    opacity: 0;
+    transform: scaleY(1); 
   }
 }
 
@@ -54,29 +43,31 @@
   animation: scale .4s linear;
 }
 
-.kick {
-  position: absolute;
-  left: 0;
-  top: 0;
-  opacity: 0;
-}
-
 .fixed {
   position: absolute;
   left: 0;
   top: 0;
   opacity: 0;
-  animation: fade .3s linear;
 }
 
-.inner {
-  animation: kickScale1 2s linear;
+.hiHatFixed {
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  opacity: 0;
 }
 
-.mid {
-  animation: kickScale2 2s linear;
+.kick {
+  z-index: 2;
+  animation: kickAnimation .5s linear;
 }
 
-.outer {
-  animation: kickScale3 2s linear;
+.snare {
+  z-index: 1;
+  animation: snareAnimation .5s linear;
 }
+
+.hiHat {
+  animation: hiHatAnimation .8s linear;
+}
+

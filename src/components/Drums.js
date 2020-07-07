@@ -3,8 +3,8 @@ import MidiDataContext from '../context/MidiDataContext';
 import { 
   Kick,
   Snare,
-  HiHatClosed,
-  HiHatOpen,
+  HiHat,
+  HiHatPedal,
   Tom1,
   Tom2,
   Tom3,
@@ -17,8 +17,8 @@ import "../styles/drums.css";
 
 const kick = new Kick();
 const snare = new Snare();
-const hiHatClosed = new HiHatClosed();
-const hiHatOpen = new HiHatOpen();
+const hiHat = new HiHat();
+const hiHatPedal = new HiHatPedal();
 const tom1 = new Tom1();
 const tom2 = new Tom2();
 const tom3 = new Tom3();
@@ -43,11 +43,11 @@ const handleHit = hit => {
     case Constants.TOM_3:
       tom3.handleHit();
       break;
-    case Constants.HI_HAT_CLOSED:
-      hiHatClosed.handleHit();
+    case Constants.HI_HAT:
+      hiHat.handleHit();
       break;
-    case Constants.HI_HAT_OPEN:
-      hiHatOpen.handleHit();
+    case Constants.HI_HAT_PEDAL:
+      hiHatPedal.handleHit();
       break;
     case Constants.CRASH_LEFT:
       crashLeft.handleHit();
@@ -81,8 +81,8 @@ const Drums = () => {
       <div>{tom1.hitArray}</div>
       <div>{tom2.hitArray}</div>
       <div>{tom3.hitArray}</div>
-      <div>{hiHatClosed.hitArray}</div>
-      <div>{hiHatOpen.hitArray}</div>
+      <div>{hiHat.hitArray}</div>
+      {/* <div>{hiHatPedal.hitArray}</div> */}
     </div>
   );
 };
