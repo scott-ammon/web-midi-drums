@@ -1,5 +1,7 @@
 import React from 'react';
 
+const backgroundColor = "#f3ecc2";
+
 class Instrument {
   constructor() {
     this.hitArray = [];
@@ -15,8 +17,14 @@ export class Kick extends Instrument {
   makeShape = () => {
     return (
       <div key={Math.random()}>
-        <svg className="kick fixed" height="100%" width="100%">
-          <circle r="160" cx="50%" cy="50%" fill="white" />
+        <svg className="kick fixed" height="100%" width="100%" fill="url(#grad1)">
+          <defs>
+            <radialGradient id="grad1" cx="50%" cy="50%" r="50%" fx="50%" fy="50%">
+              <stop className="kickStop1" offset="0%" />
+              <stop className="kickStop2" offset="100%" />
+            </radialGradient>
+          </defs>
+          <circle r="160" cx="50%" cy="50%"/>
         </svg>
       </div>
     );
@@ -37,7 +45,7 @@ export class HiHat extends Instrument {
     return (
       <div className="hiHatFixed" key={Math.random()}>
         <svg className="hiHat" height="100%" width="100%">
-          <line x1="50%" y1="50%" x2={xPos} y2={yPos} stroke="red" strokeWidth={4} strokeLinecap="round" />
+          <line x1="50%" y1="50%" x2={xPos} y2={yPos} stroke="#e8505b" strokeWidth={4} strokeLinecap="round" />
         </svg>
       </div>
     );
@@ -61,7 +69,7 @@ export class Snare extends Instrument {
     return (
       <div className="fixedSnare" key={Math.random()}>
         <svg className="snare" height="100%" width="100%" >
-          <circle r="200" cx="50%" cy="50%" stroke="tomato" strokeWidth="40" strokeDasharray="10 10" />
+          <circle r="200" cx="50%" cy="50%" stroke="#14b1ab" fill="#f3ecc2" strokeWidth="40" strokeDasharray="10 10" />
         </svg>
       </div>
     );
@@ -73,8 +81,8 @@ export class Tom1 extends Instrument {
     return (
       <div className="fixedTom" key={Math.random()}>
         <svg className="tom" height="100%" width="100%">
-          <circle r="300" cx="50%" cy="50%" fill="white" />
-          <circle r="350" cx="62%" cy="50%" fill="black" />
+          <circle r="300" cx="50%" cy="50%" fill="#f9d56e" />
+          <circle r="350" cx="68%" cy="50%" fill={backgroundColor} />
         </svg>
       </div>
     );
@@ -86,8 +94,8 @@ export class Tom2 extends Instrument {
     return (
       <div className="fixedTom" key={Math.random()}>
         <svg className="tom" height="100%" width="100%">
-          <circle r="300" cx="50%" cy="50%" fill="yellow" />
-          <circle r="350" cx="50%" cy="62%" fill="black" />
+          <circle r="300" cx="50%" cy="50%" fill="#14b1ab" />
+          <circle r="350" cx="50%" cy="68%" fill={backgroundColor} />
         </svg>
       </div>
     );
@@ -99,8 +107,8 @@ export class Tom3 extends Instrument {
     return (
       <div className="fixedTom" key={Math.random()}>
         <svg className="tom" height="100%" width="100%">
-          <circle r="300" cx="50%" cy="50%" fill="green" />
-          <circle r="350" cx="38%" cy="50%" fill="black" />
+          <circle r="300" cx="50%" cy="50%" fill="#e8505b" />
+          <circle r="350" cx="32%" cy="50%" fill={backgroundColor} />
         </svg>
       </div>
     );
@@ -145,20 +153,9 @@ export class Ride extends Instrument {
     return (
       <div className="hiHatFixed" key={Math.random()}>
         <svg className="hiHat" height="100%" width="100%">
-          <line x1="50%" y1="50%" x2={xPos} y2={yPos} stroke="blue" strokeWidth={4} strokeLinecap="round" />
+          <line x1="50%" y1="50%" x2={xPos} y2={yPos} stroke="#14b1ab" strokeWidth={4} strokeLinecap="round" />
         </svg>
       </div>
     );
   }
-}
-
-export class StarShape extends Instrument {
-  constructor() {
-    super();
-    this.shape = (
-      <svg className="kick2" height="100%" width="100%" >
-        <circle r="100" cx="50%" cy="50%" stroke="tomato" stroke-width="200" stroke-dasharray="5 10" />
-      </svg>
-    );
-  };
 }

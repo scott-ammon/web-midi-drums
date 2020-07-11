@@ -1,7 +1,7 @@
 .visualizer {
   width: 100vw;
   height: 100vh;
-  background-color: black;
+  background-color: #f3ecc2;
   position: relative;
 }
 
@@ -57,14 +57,6 @@
   }
 }
 
-.star-shape {
-  position: absolute;
-  left: 0;
-  top: 0;
-  opacity: 0;
-  animation: scale .4s linear;
-}
-
 .fixed {
   position: absolute;
   left: 0;
@@ -99,7 +91,18 @@
 
 .kick {
   z-index: 999;
-  animation: kickAnimation .5s linear;
+  animation: kickAnimation 1s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  opacity: 0;
+}
+
+.kickStop1 {
+  stop-color: #f3ecc2;
+  stop-opacity: 0;
+}
+
+.kickStop2 {
+  stop-color: #e8505b;
+  stop-opacity: 1;
 }
 
 .snare {
