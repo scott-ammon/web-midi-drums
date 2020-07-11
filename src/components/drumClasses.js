@@ -16,7 +16,7 @@ export class Kick extends Instrument {
     return (
       <div key={Math.random()}>
         <svg className="kick fixed" height="100%" width="100%">
-          <circle r="100" cx="50%" cy="50%" fill="white" />
+          <circle r="160" cx="50%" cy="50%" fill="white" />
         </svg>
       </div>
     );
@@ -30,7 +30,6 @@ export class HiHat extends Instrument {
   }
   makeShape = () => {
     const radius = 400;
-    // const randomAngle = Math.random() * 2 * Math.PI;
     this.randomAngle += .1;
     const xPos = Math.cos(this.randomAngle) * radius + 400;
     const yPos = Math.sin(this.randomAngle) * radius + 400;
@@ -62,7 +61,7 @@ export class Snare extends Instrument {
     return (
       <div className="fixedSnare" key={Math.random()}>
         <svg className="snare" height="100%" width="100%" >
-          <circle r="100" cx="50%" cy="50%" stroke="tomato" strokeWidth="40" strokeDasharray="10 10" />
+          <circle r="200" cx="50%" cy="50%" stroke="tomato" strokeWidth="40" strokeDasharray="10 10" />
         </svg>
       </div>
     );
@@ -72,9 +71,10 @@ export class Snare extends Instrument {
 export class Tom1 extends Instrument {
   makeShape = () => {
     return (
-      <div key={Math.random()}>
-        <svg className="fixed" height="100%" width="100%">
-          <circle r="50" cx={Math.floor(Math.random() * Math.floor(1000)) + 200} cy={Math.floor(Math.random() * Math.floor(600)) + 200} fill="blue"/>
+      <div className="fixedTom" key={Math.random()}>
+        <svg className="tom" height="100%" width="100%">
+          <circle r="300" cx="50%" cy="50%" fill="white" />
+          <circle r="350" cx="62%" cy="50%" fill="black" />
         </svg>
       </div>
     );
@@ -84,9 +84,10 @@ export class Tom1 extends Instrument {
 export class Tom2 extends Instrument {
   makeShape = () => {
     return (
-      <div key={Math.random()}>
-        <svg className="fixed" height="100%" width="100%">
-          <circle r="50" cx={Math.floor(Math.random() * Math.floor(1000)) + 200} cy={Math.floor(Math.random() * Math.floor(600)) + 200} fill="green"/>
+      <div className="fixedTom" key={Math.random()}>
+        <svg className="tom" height="100%" width="100%">
+          <circle r="300" cx="50%" cy="50%" fill="yellow" />
+          <circle r="350" cx="50%" cy="62%" fill="black" />
         </svg>
       </div>
     );
@@ -96,9 +97,10 @@ export class Tom2 extends Instrument {
 export class Tom3 extends Instrument {
   makeShape = () => {
     return (
-      <div key={Math.random()}>
-        <svg className="fixed" height="100%" width="100%">
-          <circle r="50" cx={Math.floor(Math.random() * Math.floor(1000)) + 200} cy={Math.floor(Math.random() * Math.floor(600)) + 200} fill="yellow"/>
+      <div className="fixedTom" key={Math.random()}>
+        <svg className="tom" height="100%" width="100%">
+          <circle r="300" cx="50%" cy="50%" fill="green" />
+          <circle r="350" cx="38%" cy="50%" fill="black" />
         </svg>
       </div>
     );
