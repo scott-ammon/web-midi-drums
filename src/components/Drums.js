@@ -82,7 +82,9 @@ const Drums = () => {
       <div>{tom2.hitArray}</div>
       <div>{tom3.hitArray}</div>
       <div>{hiHat.hitArray}</div>
-      {/* <div>{hiHatPedal.hitArray}</div> */}
+      <div>{ride.hitArray}</div>
+      <div>{crashLeft.hitArray}</div>
+      <div>{crashRight.hitArray}</div>
     </div>
   );
 };

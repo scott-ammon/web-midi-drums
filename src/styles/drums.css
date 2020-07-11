@@ -46,6 +46,17 @@
   }
 }
 
+@keyframes crashAnimation {
+  0% { 
+    transform: scale(1); 
+    opacity: 1;
+  }
+  10% { transform: scale(.7); }
+  100% { 
+    transform: scale(.4); 
+  }
+}
+
 .star-shape {
   position: absolute;
   left: 0;
@@ -105,4 +116,9 @@
 .tom {
   opacity: 0;
   animation: tomAnimation .5s linear;
+}
+
+.crash {
+  opacity: 0;
+  animation: crashAnimation .5s linear;
 }

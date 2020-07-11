@@ -111,7 +111,7 @@ export class CrashLeft extends Instrument {
   makeShape = () => {
     return (
       <div key={Math.random()}>
-        <svg className="fixed" height="100%" width="100%">
+        <svg className="crash fixed" height="100%" width="100%">
           <circle r="50" cx="50%" cy="50%" fill="red"/>
         </svg>
       </div>
@@ -123,7 +123,7 @@ export class CrashRight extends Instrument {
   makeShape = () => {
     return (
       <div key={Math.random()}>
-        <svg className="fixed" height="100%" width="100%">
+        <svg className="crash fixed" height="100%" width="100%">
           <circle r="50" cx="50%" cy="50%" fill="purple"/>
         </svg>
       </div>
@@ -132,11 +132,20 @@ export class CrashRight extends Instrument {
 }
 
 export class Ride extends Instrument {
+  constructor() {
+    super();
+    this.randomAngle = 0;
+  }
   makeShape = () => {
+    const radius = 400;
+    this.randomAngle -= .3;
+    const xPos = Math.cos(this.randomAngle) * radius + 400;
+    const yPos = Math.sin(this.randomAngle) * radius + 400;
+
     return (
-      <div key={Math.random()}>
-        <svg className="fixed" height="100%" width="100%">
-          <circle r="50" cx="50%" cy="50%" fill="white"/>
+      <div className="hiHatFixed" key={Math.random()}>
+        <svg className="hiHat" height="100%" width="100%">
+          <line x1="50%" y1="50%" x2={xPos} y2={yPos} stroke="blue" strokeWidth={4} strokeLinecap="round" />
         </svg>
       </div>
     );
