@@ -24,13 +24,21 @@ export class Kick extends Instrument {
 }
 
 export class HiHat extends Instrument {
+  constructor() {
+    super();
+    this.randomAngle = 0;
+  }
   makeShape = () => {
-    const xPos = Math.floor(Math.random() * Math.floor(600)) + 400;
+    const radius = 400;
+    // const randomAngle = Math.random() * 2 * Math.PI;
+    this.randomAngle += .1;
+    const xPos = Math.cos(this.randomAngle) * radius + 400;
+    const yPos = Math.sin(this.randomAngle) * radius + 400;
 
     return (
-      <div key={Math.random()}>
-        <svg className="hiHatFixed hiHat" height="100%" width="100%">
-          <line x1={xPos} y1="0" x2={xPos} y2="200" stroke="red" strokeWidth={8} />
+      <div className="hiHatFixed" key={Math.random()}>
+        <svg className="hiHat" height="100%" width="100%">
+          <line x1="50%" y1="50%" x2={xPos} y2={yPos} stroke="red" strokeWidth={4} strokeLinecap="round" />
         </svg>
       </div>
     );
@@ -52,8 +60,8 @@ export class HiHatPedal extends Instrument {
 export class Snare extends Instrument {
   makeShape = () => {
     return (
-      <div key={Math.random()}>
-        <svg className="snare fixed" height="100%" width="100%" >
+      <div className="fixedSnare" key={Math.random()}>
+        <svg className="snare" height="100%" width="100%" >
           <circle r="100" cx="50%" cy="50%" stroke="tomato" strokeWidth="40" strokeDasharray="10 10" />
         </svg>
       </div>
