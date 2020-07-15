@@ -69,7 +69,7 @@ export class Snare extends Instrument {
     return (
       <div className="fixedSnare" key={Math.random()}>
         <svg className="snare" height="100%" width="100%" >
-          <circle r={velocity * 2} cx="50%" cy="50%" stroke="#14b1ab" fill="#f3ecc2" strokeWidth="40" strokeDasharray="10 10" />
+          <circle r={velocity * 2} cx="50%" cy="50%" stroke="#14b1ab" fill={backgroundColor} strokeWidth="40" strokeDasharray="10 10" />
         </svg>
       </div>
     );
