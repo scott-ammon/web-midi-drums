@@ -29,10 +29,10 @@ const ride = new Ride();
 const handleHit = hit => {
   switch(hit.note) {
     case Constants.KICK:
-      kick.handleHit();
+      kick.handleHit(hit.velocity);
       break;
     case Constants.SNARE:
-      snare.handleHit();
+      snare.handleHit(hit.velocity);
       break;
     case Constants.TOM_1:
       tom1.handleHit();
@@ -44,7 +44,7 @@ const handleHit = hit => {
       tom3.handleHit();
       break;
     case Constants.HI_HAT:
-      hiHat.handleHit();
+      hiHat.handleHit(hit.velocity);
       break;
     case Constants.HI_HAT_PEDAL:
       hiHatPedal.handleHit();
@@ -56,7 +56,7 @@ const handleHit = hit => {
       crashRight.handleHit();
       break;
     case Constants.RIDE:
-      ride.handleHit();
+      ride.handleHit(hit.velocity);
       break;
     default:
       break;

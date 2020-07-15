@@ -8,13 +8,13 @@ class Instrument {
     this.makeShape = () => null;
   }
 
-  handleHit() {
-    this.hitArray = [this.makeShape()];
+  handleHit(velocity) {
+    this.hitArray = [this.makeShape(velocity)];
   }
 }
 
 export class Kick extends Instrument {
-  makeShape = () => {
+  makeShape = (velocity) => {
     return (
       <div key={Math.random()}>
         <svg className="kick fixed" height="100%" width="100%" fill="url(#grad1)">
@@ -24,7 +24,7 @@ export class Kick extends Instrument {
               <stop className="kickStop2" offset="100%" />
             </radialGradient>
           </defs>
-          <circle r="160" cx="50%" cy="50%"/>
+          <circle r={velocity * 2.5} cx="50%" cy="50%"/>
         </svg>
       </div>
     );
@@ -36,8 +36,8 @@ export class HiHat extends Instrument {
     super();
     this.randomAngle = 0;
   }
-  makeShape = () => {
-    const radius = 400;
+  makeShape = (velocity) => {
+    const radius = velocity * 5;
     this.randomAngle += .1;
     const xPos = Math.cos(this.randomAngle) * radius + 400;
     const yPos = Math.sin(this.randomAngle) * radius + 400;
@@ -65,11 +65,11 @@ export class HiHatPedal extends Instrument {
 }
 
 export class Snare extends Instrument {
-  makeShape = () => {
+  makeShape = (velocity) => {
     return (
       <div className="fixedSnare" key={Math.random()}>
         <svg className="snare" height="100%" width="100%" >
-          <circle r="200" cx="50%" cy="50%" stroke="#14b1ab" fill="#f3ecc2" strokeWidth="40" strokeDasharray="10 10" />
+          <circle r={velocity * 2} cx="50%" cy="50%" stroke="#14b1ab" fill="#f3ecc2" strokeWidth="40" strokeDasharray="10 10" />
         </svg>
       </div>
     );
@@ -120,7 +120,7 @@ export class CrashLeft extends Instrument {
     return (
       <div key={Math.random()}>
         <svg className="crash fixed" height="100%" width="100%">
-          <circle r="50" cx="50%" cy="50%" fill="red"/>
+          <rect width="100%" height="100%" fill="#f9d56e"/>
         </svg>
       </div>
     );
@@ -132,7 +132,7 @@ export class CrashRight extends Instrument {
     return (
       <div key={Math.random()}>
         <svg className="crash fixed" height="100%" width="100%">
-          <circle r="50" cx="50%" cy="50%" fill="purple"/>
+        <rect width="100%" height="100%" fill="#14b1ab"/>
         </svg>
       </div>
     );
@@ -144,8 +144,8 @@ export class Ride extends Instrument {
     super();
     this.randomAngle = 0;
   }
-  makeShape = () => {
-    const radius = 400;
+  makeShape = (velocity) => {
+    const radius = velocity * 8;
     this.randomAngle -= .3;
     const xPos = Math.cos(this.randomAngle) * radius + 400;
     const yPos = Math.sin(this.randomAngle) * radius + 400;
