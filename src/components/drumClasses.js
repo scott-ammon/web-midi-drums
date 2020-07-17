@@ -34,18 +34,28 @@ export class Kick extends Instrument {
 export class HiHat extends Instrument {
   constructor() {
     super();
-    this.randomAngle = 0;
+    this.rotationRadians = 0;
   }
+
   makeShape = (velocity) => {
     const radius = velocity * 5;
-    this.randomAngle += .1;
-    const xPos = Math.cos(this.randomAngle) * radius + 400;
-    const yPos = Math.sin(this.randomAngle) * radius + 400;
+    this.rotationRadians += .1;
+
+    const xPos = Math.cos(this.rotationRadians) * radius + 400;
+    const yPos = Math.sin(this.rotationRadians) * radius + 400;
 
     return (
       <div className="hiHatFixed" key={Math.random()}>
         <svg className="hiHat" height="100%" width="100%">
-          <line x1="50%" y1="50%" x2={xPos} y2={yPos} stroke="#e8505b" strokeWidth={4} strokeLinecap="round" />
+          <line 
+            x1="50%" 
+            y1="50%" 
+            x2={xPos} 
+            y2={yPos} 
+            stroke="#e8505b" 
+            strokeWidth={4} 
+            strokeLinecap="round"
+          />
         </svg>
       </div>
     );
@@ -142,13 +152,13 @@ export class CrashRight extends Instrument {
 export class Ride extends Instrument {
   constructor() {
     super();
-    this.randomAngle = 0;
+    this.rotationRadians = 0;
   }
   makeShape = (velocity) => {
     const radius = velocity * 8;
-    this.randomAngle -= .3;
-    const xPos = Math.cos(this.randomAngle) * radius + 400;
-    const yPos = Math.sin(this.randomAngle) * radius + 400;
+    this.rotationRadians -= .3;
+    const xPos = Math.cos(this.rotationRadians) * radius + 400;
+    const yPos = Math.sin(this.rotationRadians) * radius + 400;
 
     return (
       <div className="hiHatFixed" key={Math.random()}>
