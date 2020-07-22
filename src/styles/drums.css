@@ -1,7 +1,7 @@
 .visualizer {
   width: 100vw;
   height: 100vh;
-  background-color: #f3ecc2;
+  background-color: #1b262c;
   position: relative;
 }
 
@@ -31,8 +31,11 @@
   0% { 
     opacity: 1;
   }
+  20% {
+    opacity: .3;
+  }
   100% { 
-    transform: scale(.5) rotate(40deg); 
+    transform: scale(.5); 
   }
 }
 
@@ -64,19 +67,19 @@
 
 .fixedTom {
   position: absolute;
-  left: calc(50vw - 300px);
-  top: calc(50vh - 300px);
-  width: 600px;
-  height: 600px;
+  left: calc(50vw - 400px);
+  top: calc(50vh - 400px);
+  width: 800px;
+  height: 800px;
 }
 
 .fixedSnare {
   z-index: 998;
   position: absolute;
-  left: calc(50vw - 300px);
-  top: calc(50vh - 300px);
-  width: 600px;
-  height: 600px;
+  left: calc(50vw - 400px);
+  top: calc(50vh - 400px);
+  width: 800px;
+  height: 800px;
 }
 
 .hiHatFixed {
@@ -94,8 +97,8 @@
 }
 
 .kickStop1 {
-  stop-color: #f3ecc2;
-  stop-opacity: 0;
+  stop-color: #fff;
+  stop-opacity: 0.8;
 }
 
 .kickStop2 {
@@ -103,10 +106,26 @@
   stop-opacity: 1;
 }
 
+.snareStop1 {
+  stop-color: #fff;
+  stop-opacity: 0.8;
+}
+
+.snareStop2 {
+  stop-color: orange;
+  stop-opacity: 1;
+}
+
 .snare {
   z-index: 5;
-  animation: snareAnimation .5s linear;
+  animation: snareAnimation .3s linear;
   opacity: 0;
+}
+
+.poly {
+  fill: lime;
+  stroke: purple;
+  stroke-width: 1;
 }
 
 .hiHat {

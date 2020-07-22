@@ -1,6 +1,6 @@
 import React from 'react';
 
-const backgroundColor = "#f3ecc2";
+const backgroundColor = "#1b262c";
 
 class Instrument {
   constructor() {
@@ -21,7 +21,7 @@ export class Kick extends Instrument {
           <defs>
             <radialGradient id="grad1" cx="50%" cy="50%" r="50%" fx="50%" fy="50%">
               <stop className="kickStop1" offset="0%" />
-              <stop className="kickStop2" offset="100%" />
+              <stop className="kickStop2" offset="80%" />
             </radialGradient>
           </defs>
           <circle r={velocity * 2.5} cx="50%" cy="50%"/>
@@ -52,8 +52,8 @@ export class HiHat extends Instrument {
             y1="50%" 
             x2={xPos} 
             y2={yPos} 
-            stroke="#e8505b" 
-            strokeWidth={4} 
+            stroke="#bbe1fa" 
+            strokeWidth={8} 
             strokeLinecap="round"
           />
         </svg>
@@ -75,11 +75,28 @@ export class HiHatPedal extends Instrument {
 }
 
 export class Snare extends Instrument {
+  constructor() {
+    super();
+    this.rotationRadians = 0;
+  }
+
   makeShape = (velocity) => {
+    const radius = 350;
+    this.rotationRadians += .2;
+
+    const xPos = Math.cos(this.rotationRadians) * radius + 400;
+    const yPos = Math.sin(this.rotationRadians) * radius + 400;
+
     return (
       <div className="fixedSnare" key={Math.random()}>
-        <svg className="snare" height="100%" width="100%" >
-          <circle r={velocity * 2} cx="50%" cy="50%" stroke="#14b1ab" fill={backgroundColor} strokeWidth="40" strokeDasharray="10 10" />
+        <svg className="snare" height="100%" width="100%" fill="url(#gradSnare)" >
+          <defs>
+            <radialGradient id="gradSnare" cx={xPos} cy={yPos} r="25" fx="50%" fy="50%">
+              <stop className="snareStop1" offset="0%" />
+              <stop className="snareStop2" offset="80%" />
+            </radialGradient>
+          </defs>
+          <circle r="50" cx={xPos} cy={yPos} fill="orange" />
         </svg>
       </div>
     );
@@ -87,12 +104,17 @@ export class Snare extends Instrument {
 }
 
 export class Tom1 extends Instrument {
-  makeShape = () => {
+  makeShape = (velocity) => {
     return (
       <div className="fixedTom" key={Math.random()}>
         <svg className="tom" height="100%" width="100%">
-          <circle r="300" cx="50%" cy="50%" fill="#f9d56e" />
-          <circle r="350" cx="68%" cy="50%" fill={backgroundColor} />
+          <defs>
+            <filter id="tom1" x="0" y="0">
+              <feGaussianBlur in="SourceGraphic" stdDeviation="5" />
+            </filter>
+          </defs>
+          <circle r={velocity * 1.5 + 200} cx="50%" cy="50%" fill="#3282b8" filter="url(#tom1)" />
+          <circle r={velocity * 1.5 + 290} cx="68%" cy="50%" fill={backgroundColor} />
         </svg>
       </div>
     );
@@ -100,12 +122,17 @@ export class Tom1 extends Instrument {
 }
 
 export class Tom2 extends Instrument {
-  makeShape = () => {
+  makeShape = (velocity) => {
     return (
       <div className="fixedTom" key={Math.random()}>
         <svg className="tom" height="100%" width="100%">
-          <circle r="300" cx="50%" cy="50%" fill="#14b1ab" />
-          <circle r="350" cx="50%" cy="68%" fill={backgroundColor} />
+          <defs>
+            <filter id="tom2" x="0" y="0">
+              <feGaussianBlur in="SourceGraphic" stdDeviation="5" />
+            </filter>
+          </defs>
+          <circle r={velocity * 1.5 + 200} cx="50%" cy="50%" fill="#bbe1fa" filter="url(#tom2)" />
+          <circle r={velocity * 1.5 + 290} cx="50%" cy="68%" fill={backgroundColor} />
         </svg>
       </div>
     );
@@ -113,12 +140,17 @@ export class Tom2 extends Instrument {
 }
 
 export class Tom3 extends Instrument {
-  makeShape = () => {
+  makeShape = (velocity) => {
     return (
       <div className="fixedTom" key={Math.random()}>
         <svg className="tom" height="100%" width="100%">
-          <circle r="300" cx="50%" cy="50%" fill="#e8505b" />
-          <circle r="350" cx="32%" cy="50%" fill={backgroundColor} />
+          <defs>
+            <filter id="tom3" x="0" y="0">
+              <feGaussianBlur in="SourceGraphic" stdDeviation="5" />
+            </filter>
+          </defs>
+          <circle r={velocity * 1.5 + 200} cx="50%" cy="50%" fill="#e8505b" filter="url(#tom3)"/>
+          <circle r={velocity * 1.5 + 290} cx="32%" cy="50%" fill={backgroundColor} />
         </svg>
       </div>
     );
@@ -142,7 +174,7 @@ export class CrashRight extends Instrument {
     return (
       <div key={Math.random()}>
         <svg className="crash fixed" height="100%" width="100%">
-        <rect width="100%" height="100%" fill="#14b1ab"/>
+        <rect width="100%" height="100%" fill="#3282b8"/>
         </svg>
       </div>
     );

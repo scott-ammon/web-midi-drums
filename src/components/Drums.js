@@ -35,13 +35,13 @@ const handleHit = hit => {
       snare.handleHit(hit.velocity);
       break;
     case Constants.TOM_1:
-      tom1.handleHit();
+      tom1.handleHit(hit.velocity);
       break;
     case Constants.TOM_2:
-      tom2.handleHit();
+      tom2.handleHit(hit.velocity);
       break;
     case Constants.TOM_3:
-      tom3.handleHit();
+      tom3.handleHit(hit.velocity);
       break;
     case Constants.HI_HAT:
       hiHat.handleHit(hit.velocity);
